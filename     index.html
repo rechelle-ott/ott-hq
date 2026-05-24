@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>OTT HQ — Growth Roadmap</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{--bg:#080808;--panel:#101010;--panel2:#171717;--panel3:#201b10;--line:rgba(214,172,75,.25);--gold:#d6ac4b;--gold2:#f4ddb0;--cream:#f7f3e8;--text:#f7f3e8;--muted:rgba(247,243,232,.64);--dim:rgba(247,243,232,.40);--green:#79d891;--red:#ff746e;--blue:#72cdfa;--amber:#f5bf50;--purple:#c4a8ff;--radius:22px;--shadow:0 22px 70px rgba(0,0,0,.38)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.55}a{color:inherit}.nav{position:sticky;top:0;z-index:50;background:rgba(8,8,8,.92);backdrop-filter:blur(18px);border-bottom:1px solid var(--line);display:flex;align-items:center;overflow-x:auto}.brand{padding:22px 34px;color:var(--gold);font-weight:950;letter-spacing:.16em;border-right:1px solid var(--line);white-space:nowrap}.nav a{padding:24px 20px;text-decoration:none;text-transform:uppercase;letter-spacing:.12em;font-size:12px;font-weight:900;color:var(--muted);white-space:nowrap}.nav a:hover{color:var(--gold)}
+.hero{min-height:84vh;padding:94px 36px 70px;background:radial-gradient(circle at 52% 23%,rgba(214,172,75,.20),transparent 38%),linear-gradient(180deg,#141007 0%,#080808 84%);border-bottom:1px solid var(--line);display:grid;place-items:center;text-align:center}.eyebrow{display:inline-flex;gap:10px;align-items:center;border:1px solid rgba(214,172,75,.45);border-radius:999px;color:var(--gold);padding:12px 24px;font-size:13px;text-transform:uppercase;letter-spacing:.18em;font-weight:950;background:rgba(214,172,75,.08)}h1{font-size:clamp(3.2rem,9vw,8rem);letter-spacing:-.08em;line-height:.92;margin:34px auto 24px;max-width:1080px}.hero p{font-size:clamp(1.06rem,2vw,1.45rem);max-width:900px;margin:0 auto;color:var(--muted)}.metric-strip{max-width:1240px;margin:58px auto 0;display:grid;grid-template-columns:repeat(5,1fr);gap:16px}.metric{border:1px solid var(--line);background:rgba(20,20,20,.74);border-radius:20px;padding:24px;text-align:left;box-shadow:var(--shadow)}.metric .num{font-size:clamp(2rem,4vw,3.35rem);font-weight:950;color:var(--gold);line-height:1}.metric .label{text-transform:uppercase;letter-spacing:.14em;font-size:11px;color:var(--dim);font-weight:900;margin-top:10px}.metric .sub{font-size:12px;color:var(--muted);margin-top:8px}.section{max-width:1260px;margin:0 auto;padding:88px 28px;border-bottom:1px solid rgba(214,172,75,.14)}.section-head{display:grid;grid-template-columns:270px 1fr;gap:34px;margin-bottom:36px}.kicker{color:var(--gold);font-weight:950;letter-spacing:.22em;text-transform:uppercase;font-size:13px}.section h2{font-size:clamp(2.2rem,5vw,4.6rem);line-height:1;margin:0 0 18px;letter-spacing:-.06em}.lead{font-size:1.12rem;color:var(--muted);max-width:880px}.grid{display:grid;gap:18px}.cards-4{grid-template-columns:repeat(4,1fr)}.cards-3{grid-template-columns:repeat(3,1fr)}.cards-2{grid-template-columns:repeat(2,1fr)}.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);padding:26px;box-shadow:var(--shadow)}.card.gold{border-color:rgba(214,172,75,.45);background:linear-gradient(180deg,rgba(214,172,75,.12),rgba(16,16,16,.9))}.card.green{border-color:rgba(121,216,145,.28)}.card.red{border-color:rgba(255,116,110,.30)}.card.blue{border-color:rgba(114,205,250,.26)}.card.amber{border-color:rgba(245,191,80,.30)}.card h3{margin:0 0 10px;font-size:1.35rem;letter-spacing:-.03em}.card p{color:var(--muted);margin:0 0 16px}.tag{display:inline-flex;align-items:center;gap:8px;border:1px solid rgba(214,172,75,.32);color:var(--gold);border-radius:999px;padding:6px 10px;font-size:11px;text-transform:uppercase;letter-spacing:.12em;font-weight:900}.tag.green{color:var(--green);border-color:rgba(121,216,145,.28)}.tag.red{color:var(--red);border-color:rgba(255,116,110,.28)}.tag.blue{color:var(--blue);border-color:rgba(114,205,250,.28)}.tag.amber{color:var(--amber);border-color:rgba(245,191,80,.28)}.list{display:grid;gap:10px;margin:18px 0 0}.list div{display:flex;gap:10px;color:var(--muted);font-size:.94rem}.list div:before{content:"→";color:var(--gold);font-weight:900}.number{font-size:2.45rem;font-weight:950;color:var(--gold);letter-spacing:-.04em}.subcap{text-transform:uppercase;letter-spacing:.13em;color:var(--dim);font-size:11px;font-weight:950}.progress{height:12px;background:rgba(255,255,255,.08);border-radius:999px;overflow:hidden;margin-top:12px}.bar{height:100%;background:linear-gradient(90deg,var(--gold),var(--gold2));border-radius:999px}.bar.green{background:var(--green)}.bar.red{background:var(--red)}.bar.blue{background:var(--blue)}.bar.amber{background:var(--amber)}
+.flywheel{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;align-items:stretch}.wheel-step{border:1px solid var(--line);border-radius:18px;padding:20px;background:rgba(214,172,75,.08);position:relative}.wheel-step:not(:last-child):after{content:"";position:absolute;right:-13px;top:50%;width:13px;height:1px;background:var(--gold)}.wheel-step strong{display:block;color:var(--gold);text-transform:uppercase;letter-spacing:.13em;font-size:12px;margin-bottom:8px}.wheel-step span{color:var(--muted);font-size:.9rem}.pillar{display:grid;grid-template-columns:1.1fr .9fr;gap:18px;margin-bottom:20px}.pillar-title{display:flex;justify-content:space-between;gap:14px;align-items:flex-start;margin-bottom:12px}.pillar-title h3{font-size:2rem;margin:0}.ip-list{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}.pill{border:1px solid rgba(255,255,255,.1);background:rgba(255,255,255,.05);color:var(--muted);border-radius:999px;padding:7px 10px;font-size:12px;font-weight:800}.score-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}.score{border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:14px;background:rgba(255,255,255,.03)}.score b{font-size:1.35rem;color:var(--gold);display:block}.score span{font-size:10px;text-transform:uppercase;letter-spacing:.12em;color:var(--dim);font-weight:900}.table-wrap{overflow-x:auto;background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid rgba(255,255,255,.08);border-radius:var(--radius);box-shadow:var(--shadow)}table{width:100%;border-collapse:collapse;min-width:900px}th,td{padding:16px 18px;border-bottom:1px solid rgba(255,255,255,.06);text-align:left;vertical-align:top}th{font-size:11px;text-transform:uppercase;letter-spacing:.14em;color:var(--dim);font-weight:950}td{color:var(--muted);font-size:.94rem}td:first-child{color:var(--text);font-weight:850}.check{color:var(--green);font-weight:950}.cross{color:var(--red);font-weight:950}.partial{color:var(--amber);font-weight:950}.chart-card{min-height:360px}.chart-wrap{height:300px}.swot{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}.swot h3{display:flex;align-items:center;gap:10px}.timeline{display:grid;gap:14px}.time-item{display:grid;grid-template-columns:105px 1fr;gap:16px;align-items:start;border-left:1px solid var(--line);padding-left:20px;position:relative}.time-item:before{content:"";position:absolute;left:-7px;top:7px;width:13px;height:13px;border-radius:50%;background:var(--gold)}.time-item b{color:var(--gold);font-size:12px;letter-spacing:.14em;text-transform:uppercase}.time-item p{margin:0;color:var(--muted)}.priority{display:grid;grid-template-columns:80px 1fr 160px;gap:18px;align-items:center;border:1px solid rgba(255,255,255,.08);border-radius:18px;padding:18px;background:var(--panel)}.p-badge{width:54px;height:54px;border-radius:16px;display:grid;place-items:center;font-weight:950;color:#111;background:var(--gold)}.priority h4{margin:0 0 6px;font-size:1.06rem}.priority p{margin:0;color:var(--muted);font-size:.93rem}.impact{text-align:right}.impact span{display:inline-block;border-radius:999px;padding:6px 10px;font-size:11px;font-weight:950;letter-spacing:.1em;text-transform:uppercase}.high{background:rgba(121,216,145,.16);color:var(--green);border:1px solid rgba(121,216,145,.25)}.med{background:rgba(245,191,80,.16);color:var(--amber);border:1px solid rgba(245,191,80,.25)}.risk{background:rgba(255,116,110,.16);color:var(--red);border:1px solid rgba(255,116,110,.25)}.feed{display:grid;gap:12px}.feed-item{display:grid;grid-template-columns:120px 1fr 100px;gap:14px;align-items:center;border:1px solid rgba(255,255,255,.08);border-radius:16px;padding:14px;background:rgba(255,255,255,.03)}.feed-item b{color:var(--gold)}.feed-item span{color:var(--muted)}.footer{padding:46px 28px;text-align:center;color:var(--dim)}@media(max-width:950px){.metric-strip,.cards-4,.cards-3,.cards-2,.flywheel,.pillar,.swot{grid-template-columns:1fr}.section-head{grid-template-columns:1fr}.priority,.feed-item{grid-template-columns:1fr}.impact{text-align:left}.metric-strip{margin-top:36px}.nav a{padding:18px 16px}.brand{padding:18px}.wheel-step:not(:last-child):after{display:none}}
+</style>
+</head>
+<body>
+<nav class="nav">
+  <div class="brand">OTT HQ</div>
+  <a href="#northstar">North Star</a><a href="#flywheel">Flywheel</a><a href="#pillars">Pillars</a><a href="#marketing">Marketing</a><a href="#ticketing">Ticketing</a><a href="#swot">SWOT</a><a href="#competitors">Competitors</a><a href="#membership">Membership</a><a href="#sponsors">Sponsors</a><a href="#roadmap">Roadmap</a><a href="#live">Live Data</a>
+</nav>
+<header class="hero">
+  <div>
+    <div class="eyebrow">OTT HQ · Growth Roadmap · May 2026</div>
+    <h1>Build the engine behind OTT.</h1>
+    <p>A live roadmap for growing the audience, strengthening every pillar, improving marketing, defending against competitors, and turning events into a repeatable growth system.</p>
+    <div class="metric-strip">
+      <div class="metric"><div class="num">11K</div><div class="label">IG Followers</div><div class="sub">18-month target: 50K</div></div>
+      <div class="metric"><div class="num">$218K</div><div class="label">Lifetime Revenue</div><div class="sub">Ticketing base to scale from</div></div>
+      <div class="metric"><div class="num">4,901</div><div class="label">Lifetime Tickets</div><div class="sub">Proof of real demand</div></div>
+      <div class="metric"><div class="num">72%</div><div class="label">Paid Show-Up</div><div class="sub">Target: 85% with CRM + reminders</div></div>
+      <div class="metric"><div class="num">6</div><div class="label">Growth Pillars</div><div class="sub">Events become a system</div></div>
+    </div>
+  </div>
+</header>
+
+<section class="section" id="northstar">
+  <div class="section-head"><div class="kicker">North Star</div><div><h2>The scoreboard that actually matters.</h2><p class="lead">Followers are useful, but OTT should be managed against a full growth system: awareness, ticket conversion, repeat attendance, membership, sponsor value, and owned audience.</p></div></div>
+  <div class="grid cards-4">
+    <div class="card gold"><div class="number">50K</div><div class="subcap">IG Audience Target</div><p>Grow from 11K to 50K by turning every event into multi-week content, creator collaborations, and recurring IP.</p><div class="progress"><div class="bar" style="width:22%"></div></div></div>
+    <div class="card"><div class="number">10K</div><div class="subcap">Tickets Target</div><p>Use The Blend, Fit Fest, travel, and pro development to double lifetime ticket volume and build repeat behavior.</p><div class="progress"><div class="bar blue" style="width:49%"></div></div></div>
+    <div class="card"><div class="number">500</div><div class="subcap">Paying Members</div><p>Turn member perks into a paid ecosystem: free/discounted entry, lounges, priority access, and trip benefits.</p><div class="progress"><div class="bar green" style="width:10%"></div></div></div>
+    <div class="card"><div class="number">$500K</div><div class="subcap">Revenue Target</div><p>Blend ticketing, sponsor packages, memberships, merch drops, and travel deposits into a diversified revenue engine.</p><div class="progress"><div class="bar amber" style="width:44%"></div></div></div>
+  </div>
+</section>
+
+<section class="section" id="flywheel">
+  <div class="section-head"><div class="kicker">Growth Flywheel</div><div><h2>Stop treating events like one-offs.</h2><p class="lead">The new model: every event should create content, every content piece should drive community, every community touchpoint should drive tickets, and every ticket should feed membership and sponsor value.</p></div></div>
+  <div class="flywheel">
+    <div class="wheel-step"><strong>01 Content</strong><span>Teasers, recaps, UGC, creator clips, playlists, founder stories.</span></div>
+    <div class="wheel-step"><strong>02 Audience</strong><span>Reach, follows, shares, email signups, saved posts.</span></div>
+    <div class="wheel-step"><strong>03 Events</strong><span>Blend, Fit Fest, Brunch & Build, travel, luxury socials.</span></div>
+    <div class="wheel-step"><strong>04 Community</strong><span>Repeat attendees, group chats, ambassador cohorts, member lounge.</span></div>
+    <div class="wheel-step"><strong>05 Revenue</strong><span>Tickets, sponsors, memberships, merch, travel deposits.</span></div>
+    <div class="wheel-step"><strong>06 Proof</strong><span>Case studies, sponsor ROI, press, dashboard insights.</span></div>
+  </div>
+</section>
+
+<section class="section" id="pillars">
+  <div class="section-head"><div class="kicker">Pillar Strategy</div><div><h2>Six pillars. Clear roles. Real growth moves.</h2><p class="lead">The previous version mixed pillars, events, and tactics. This version uses pillars as brand categories, then maps the event IP that belongs under each.</p></div></div>
+
+  <div class="pillar">
+    <div class="card gold"><div class="pillar-title"><h3>Luxury Social Experiences</h3><span class="tag">Core revenue</span></div><p><strong>The Blend belongs here as flagship IP.</strong> This pillar should carry cultural relevance, premium perception, sponsor visibility, and repeat monthly attendance.</p><div class="ip-list"><span class="pill">The Blend</span><span class="pill">NOIR</span><span class="pill">Yacht Party</span><span class="pill">Anniversary Events</span><span class="pill">Galas</span><span class="pill">Future Signature Experiences</span></div><p style="margin-top:18px"><strong>Home By Five is not an event.</strong> Treat it as day-event brand language and a future merch collection concept that can be tested across The Blend, daytime socials, and member content.</p></div>
+    <div class="card"><div class="score-grid"><div class="score"><b>Strong</b><span>Status</span></div><div class="score"><b>Monthly</b><span>Cadence</span></div><div class="score"><b>High</b><span>Sponsor Fit</span></div></div><div class="list"><div>Turn The Blend into a full media property: playlist, recap, creator POV, member lounge recap.</div><div>Test Home By Five as copy and merch positioning, not as a standalone event.</div><div>Build repeat attendee tracking and attendee segmentation by event.</div></div></div>
+  </div>
+
+  <div class="pillar">
+    <div class="card"><div class="pillar-title"><h3>Wellness & Movement</h3><span class="tag green">Needs frequency</span></div><p><strong>Fit Fest should stay the flagship, not become a constant heavy lift.</strong> The growth move is smaller recurring wellness touchpoints that keep the audience warm between major festivals.</p><div class="ip-list"><span class="pill">SF Fit Fest</span><span class="pill">Recovery Socials</span><span class="pill">Run / Walk Pilots</span><span class="pill">Mobility Mornings</span><span class="pill">Wellness Creator Workouts</span><span class="pill">510 Society Sports Partnerships</span></div></div>
+    <div class="card"><div class="score-grid"><div class="score"><b>Growing</b><span>Status</span></div><div class="score"><b>Annual</b><span>Current gap</span></div><div class="score"><b>Town Strides</b><span>Threat</span></div></div><div class="list"><div>Create monthly wellness micro-events to defend against weekly/free competitors.</div><div>Use coaches as creators, not just instructors.</div><div>Build Fit Fest email waitlist year-round instead of only launching near event date.</div></div></div>
+  </div>
+
+  <div class="pillar">
+    <div class="card"><div class="pillar-title"><h3>Professional Development & Workshops</h3><span class="tag blue">High brand equity</span></div><p>Brunch & Build should sit here with workshops, fireside chats, founder/creator education, financial freedom, and career mobility.</p><div class="ip-list"><span class="pill">Brunch & Build</span><span class="pill">Fireside Chats</span><span class="pill">Creator Workshops</span><span class="pill">Founder Salons</span><span class="pill">Corporate ERG Events</span></div></div>
+    <div class="card"><div class="score-grid"><div class="score"><b>Emerging</b><span>Status</span></div><div class="score"><b>Quarterly</b><span>Minimum goal</span></div><div class="score"><b>Strong</b><span>LinkedIn fit</span></div></div><div class="list"><div>Cut every speaker event into 10+ short-form clips.</div><div>Target tech, finance, creator economy, founders, and Bay Area builders.</div><div>Build corporate packages for ERGs and recruiting/community budgets.</div></div></div>
+  </div>
+
+  <div class="pillar">
+    <div class="card"><div class="pillar-title"><h3>Travel & Destination Experiences</h3><span class="tag amber">Premium moat</span></div><p>This is one of OTT's strongest differentiators, but it needs to become visible online. Travel should create aspiration and member demand.</p><div class="ip-list"><span class="pill">Tahoe Ski Weekend</span><span class="pill">International Trips</span><span class="pill">Destination Guides</span><span class="pill">Travel Drops</span><span class="pill">Retreats</span></div></div>
+    <div class="card"><div class="score-grid"><div class="score"><b>Premium</b><span>Status</span></div><div class="score"><b>Low</b><span>Visibility</span></div><div class="score"><b>Tribe</b><span>Overlap</span></div></div><div class="list"><div>Every trip gets a landing page, waitlist, recap film, and testimonials.</div><div>Use Tahoe as the annual winter anchor and international trips as premium member aspiration.</div><div>Create travel content that makes non-attendees feel like they missed a movement.</div></div></div>
+  </div>
+
+  <div class="pillar">
+    <div class="card"><div class="pillar-title"><h3>Membership & Community</h3><span class="tag red">Critical gap</span></div><p>The member lounge and free entry already create value, but the offer needs structure, pricing, tiers, and member-only experiences.</p><div class="ip-list"><span class="pill">Member Lounge</span><span class="pill">VIP Access</span><span class="pill">Founding Member Kit</span><span class="pill">Member-only Events</span></div></div>
+    <div class="card"><div class="score-grid"><div class="score"><b>Exists</b><span>Pieces</span></div><div class="score"><b>Unclear</b><span>Offer</span></div><div class="score"><b>500</b><span>Target members</span></div></div><div class="list"><div>Define Explorer, Insider, VIP, and Founding Member tiers.</div><div>Make membership a retention product, not just a discount.</div><div>Connect member signups to ticketing, email, and community platform.</div></div></div>
+  </div>
+
+  <div class="pillar">
+    <div class="card"><div class="pillar-title"><h3>Digital Media & Owned Channels</h3><span class="tag">Growth engine</span></div><p>This is the missing pillar that makes every other pillar scale. OTT needs owned distribution so Instagram is not the only source of truth.</p><div class="ip-list"><span class="pill">Newsletter</span><span class="pill">YouTube</span><span class="pill">TikTok</span><span class="pill">Spotify Playlists</span><span class="pill">Dashboard</span><span class="pill">Community Platform</span></div></div>
+    <div class="card"><div class="score-grid"><div class="score"><b>Missing</b><span>Status</span></div><div class="score"><b>15K</b><span>Email target</span></div><div class="score"><b>High</b><span>Urgency</span></div></div><div class="list"><div>Launch The OTT Edit newsletter and capture every ticket buyer.</div><div>Use The Blend playlists as monthly low-lift media.</div><div>Build video recaps, event case studies, and sponsor-ready reports.</div></div></div>
+  </div>
+</section>
+
+<section class="section" id="marketing">
+  <div class="section-head"><div class="kicker">Marketing Engine</div><div><h2>Make marketing repeatable, not reactive.</h2><p class="lead">OTT's content should not depend on waiting for every event detail to be perfect. Venue reveals, partner reveals, talent reveals, outfit guides, playlists, community posts, and throwbacks are all content assets.</p></div></div>
+  <div class="grid cards-3">
+    <div class="card gold"><h3>Content Mix</h3><p>Recommended split for a healthy channel that sells without sounding desperate.</p><div class="chart-wrap"><canvas id="contentMix"></canvas></div></div>
+    <div class="card"><h3>Weekly Rhythm</h3><div class="list"><div>Mon: community proof or educational content</div><div>Tue: event push or ticket urgency</div><div>Wed: BTS, venue, partner, or creator angle</div><div>Thu: social proof, UGC, or influencer collab</div><div>Fri/Sat: hype, FOMO, live coverage</div><div>Sun: recap, waitlist, or next event bridge</div></div></div>
+    <div class="card"><h3>Conversion Rules</h3><div class="list"><div>Every major event needs 3 hooks: lifestyle, urgency, and social proof.</div><div>Every ticket page needs UTM/source tracking.</div><div>Every paid ad needs a matching organic post, not a lonely ad.</div><div>Every recap should push the next relevant event.</div></div></div>
+  </div>
+</section>
+
+<section class="section" id="ticketing">
+  <div class="section-head"><div class="kicker">Ticketing Intelligence</div><div><h2>Use ticketing data to decide what to scale.</h2><p class="lead">Based on Gabe's ticketing layer: OTT has real proof of demand. The next move is connecting each event to marketing source, repeat attendance, show-up rate, and sponsor value.</p></div></div>
+  <div class="grid cards-4">
+    <div class="card"><div class="number">$217,989</div><div class="subcap">Lifetime revenue</div><p>Baseline revenue validates that OTT is more than a social page.</p></div>
+    <div class="card"><div class="number">4,901</div><div class="subcap">Lifetime tickets</div><p>Track first-time vs repeat buyers next.</p></div>
+    <div class="card"><div class="number">72%</div><div class="subcap">Paid show-up rate</div><p>Improve with SMS, reminders, calendar holds, and stronger day-of content.</p></div>
+    <div class="card"><div class="number">3</div><div class="subcap">Revenue levers</div><p>Ticket volume, average ticket price, and repeat attendee rate.</p></div>
+  </div>
+  <div class="grid cards-2" style="margin-top:18px">
+    <div class="card chart-card"><h3>Revenue Potential by Stream</h3><div class="chart-wrap"><canvas id="revenueChart"></canvas></div></div>
+    <div class="card chart-card"><h3>Event Portfolio Balance</h3><div class="chart-wrap"><canvas id="portfolioChart"></canvas></div></div>
+  </div>
+</section>
+
+<section class="section" id="swot">
+  <div class="section-head"><div class="kicker">SWOT</div><div><h2>What the brand is strong at — and what can quietly kill growth.</h2><p class="lead">The honest read: OTT has strong cultural equity and event quality, but the growth ceiling is capped until membership, owned media, reporting, and repeat touchpoints are built.</p></div></div>
+  <div class="swot">
+    <div class="card green"><h3>✅ Strengths</h3><div class="list"><div>7 years of authentic community trust.</div><div>Premium event identity and strong cultural specificity.</div><div>The Blend is a repeatable flagship IP with monthly potential.</div><div>Strong partner roster and sponsorship credibility.</div><div>Travel and luxury social events differentiate OTT from local groups.</div></div></div>
+    <div class="card amber"><h3>⚠️ Weaknesses</h3><div class="list"><div>11K followers after 7 years means visibility is under-indexed.</div><div>Event content is not being repurposed into a media engine.</div><div>Membership benefits and tiers are not clearly packaged.</div><div>Wellness and pro development lack year-round cadence.</div><div>Too much reliance on Instagram and event-by-event promotion.</div></div></div>
+    <div class="card blue"><h3>⬆️ Opportunities</h3><div class="list"><div>Build The Blend into a multi-city/event media property.</div><div>Launch paid membership with tiered access and lounge value.</div><div>Use travel content as the premium aspiration driver.</div><div>Turn Brunch & Build into corporate/ERG and LinkedIn-friendly programming.</div><div>Build sponsor reporting that competitors cannot match.</div></div></div>
+    <div class="card red"><h3>▼ Threats</h3><div class="list"><div>Toasted Life has stronger media/geographic footprint.</div><div>Town Strides wins on frequency, accessibility, and wellness momentum.</div><div>Tribe Collective overlaps on membership/travel/community.</div><div>FRNDSOnly overlaps on friendship/social discovery.</div><div>If OTT does not productize membership, another brand will own that lane.</div></div></div>
+  </div>
+</section>
+
+<section class="section" id="competitors">
+  <div class="section-head"><div class="kicker">Competitive Landscape</div><div><h2>Win by knowing exactly where each competitor is dangerous.</h2><p class="lead">This is not about copying anyone. It is about knowing where OTT has a moat, where it is vulnerable, and which pillars need immediate defense.</p></div></div>
+  <div class="grid cards-4">
+    <div class="card red"><span class="tag red">High threat</span><h3>Toasted Life</h3><p>Closest overall brand comparison: culture, experiences, professional energy, media layer, and multi-city credibility.</p><div class="list"><div>Threat: geographic and media scale.</div><div>OTT advantage: premium IP, travel, Bay Area depth.</div></div></div>
+    <div class="card red"><span class="tag red">High threat</span><h3>Town Strides</h3><p>Biggest wellness threat because they win on consistency, free entry, local community, and frequency.</p><div class="list"><div>Threat: weekly wellness habit.</div><div>OTT advantage: higher production, sponsors, festival scale.</div></div></div>
+    <div class="card amber"><span class="tag amber">Medium threat</span><h3>Tribe Collective</h3><p>Overlap is membership, connection, retreats, and curated experiences. This is the closest model threat for membership.</p><div class="list"><div>Threat: structured community model.</div><div>OTT advantage: cultural specificity and event IP.</div></div></div>
+    <div class="card"><span class="tag">Monitor</span><h3>FRNDSOnly</h3><p>Overlap is social connection and friend-making events. More narrow than OTT but relevant for social discovery.</p><div class="list"><div>Threat: friendship-first positioning.</div><div>OTT advantage: broader portfolio and sponsor credibility.</div></div></div>
+  </div>
+  <div class="table-wrap" style="margin-top:22px"><table><thead><tr><th>Feature / Pillar</th><th>OTT</th><th>Toasted Life</th><th>Town Strides</th><th>Tribe Collective</th><th>FRNDSOnly</th><th>OTT Move</th></tr></thead><tbody>
+    <tr><td>Luxury Social</td><td class="check">Strong</td><td class="check">Strong</td><td class="cross">No</td><td class="partial">Some</td><td class="partial">Basic social</td><td>Make The Blend undeniable. Use Home By Five as brand language/merch, not an event.</td></tr>
+    <tr><td>Wellness</td><td class="partial">Annual/episodic</td><td class="cross">Limited</td><td class="check">Core</td><td class="partial">Retreats</td><td class="cross">No</td><td>Add monthly wellness touchpoints.</td></tr>
+    <tr><td>Professional Development</td><td class="partial">Emerging</td><td class="check">Media angle</td><td class="cross">No</td><td class="cross">Limited</td><td class="cross">No</td><td>Make Brunch & Build quarterly + content-first.</td></tr>
+    <tr><td>Travel</td><td class="check">Strong but invisible</td><td class="partial">Global moments</td><td class="cross">No</td><td class="check">Core overlap</td><td class="cross">No</td><td>Turn trips into waitlists, films, and member aspiration.</td></tr>
+    <tr><td>Membership</td><td class="partial">Pieces exist</td><td class="partial">Join model</td><td class="cross">Free</td><td class="check">Structured</td><td class="partial">Community</td><td>Launch clear tiers and member-only value.</td></tr>
+    <tr><td>Owned Media</td><td class="cross">Missing</td><td class="check">Stronger</td><td class="partial">Community channels</td><td class="partial">Social-led</td><td class="partial">Social-led</td><td>Launch newsletter, playlists, YouTube/recaps, reports.</td></tr>
+  </tbody></table></div>
+</section>
+
+<section class="section" id="membership">
+  <div class="section-head"><div class="kicker">Membership</div><div><h2>Turn the community into recurring revenue.</h2><p class="lead">Membership should not be a vague promise. It needs clear tiers, perks, pricing logic, and retention value beyond discounts.</p></div></div>
+  <div class="grid cards-4">
+    <div class="card"><h3>Community List</h3><p>Free audience layer, not a membership tier.</p><div class="list"><div>Newsletter</div><div>Early announcements</div><div>Waitlists and surveys</div><div>Conversion pool for paid membership</div></div></div>
+    <div class="card gold"><h3>Insider</h3><p>First paid membership tier.</p><div class="list"><div>Priority tickets</div><div>Member-only pricing</div><div>Early merch access</div><div>Community perks</div></div></div>
+    <div class="card gold"><h3>VIP</h3><p>Premium experience tier.</p><div class="list"><div>Member lounge</div><div>VIP upgrades</div><div>Select free/discounted entry</div><div>Travel perks</div></div></div>
+    <div class="card"><h3>Founding</h3><p>Limited cohort.</p><div class="list"><div>Founding kit</div><div>Name recognition</div><div>Exclusive events</div></div></div>
+  </div>
+</section>
+
+<section class="section" id="sponsors">
+  <div class="section-head"><div class="kicker">Sponsor System</div><div><h2>Make sponsors buy the ecosystem, not just logo placement.</h2><p class="lead">The sponsor pitch should show reach before, during, and after events, then prove outcomes through data. This is where the dashboard becomes a sales tool.</p></div></div>
+  <div class="grid cards-3">
+    <div class="card"><h3>Pre-Event Value</h3><div class="list"><div>Audience reach and impressions.</div><div>Co-branded announcement content.</div><div>Creator/ambassador posts.</div><div>Email and community mentions.</div></div></div>
+    <div class="card gold"><h3>On-Site Value</h3><div class="list"><div>Sampling, lounge, VIP, tastings, test drives.</div><div>UGC moments and branded touchpoints.</div><div>Lead capture or QR scans.</div><div>Photography and recap rights.</div></div></div>
+    <div class="card"><h3>Post-Event Proof</h3><div class="list"><div>Recap metrics and content performance.</div><div>Attendance and demographic summary.</div><div>UGC count and earned reach.</div><div>Recommendations for next activation.</div></div></div>
+  </div>
+</section>
+
+<section class="section" id="roadmap">
+  <div class="section-head"><div class="kicker">Roadmap</div><div><h2>The next 18 months, prioritized.</h2><p class="lead">This roadmap moves OTT from event promotion to a repeatable growth engine. Start with a 90-day sprint so the strategy turns into actual operating rhythm.</p></div></div>
+  <div class="grid cards-3" style="margin-bottom:22px">
+    <div class="card gold"><h3>Next 30 Days</h3><div class="list"><div>Rename the dashboard to OTT HQ and clean up pillar language.</div><div>Launch newsletter capture and segment past attendees.</div><div>Build repeat attendee and source tracking.</div></div></div>
+    <div class="card"><h3>Days 31–60</h3><div class="list"><div>Test Home By Five in day-event copy and merch concepts.</div><div>Lock one wellness micro-event or 510 Society partnership.</div><div>Package Brunch & Build as a quarterly pro-dev series.</div></div></div>
+    <div class="card"><h3>Days 61–90</h3><div class="list"><div>Publish first sponsor recap/report template.</div><div>Launch paid membership beta with clear Insider/VIP benefits.</div><div>Build the first monthly executive snapshot from event and social data.</div></div></div>
+  </div>
+  <div class="grid cards-2">
+    <div class="card"><h3>Phased Roadmap</h3><div class="timeline">
+      <div class="time-item"><b>Now</b><p>Fix pillar strategy, launch newsletter capture, formalize membership tiers, add weekly content rhythm, build event reporting template.</p></div>
+      <div class="time-item"><b>Q3 2026</b><p>Monthly wellness pilots, Brunch & Build quarterly cadence, Blend playlist/recap series, sponsor case studies.</p></div>
+      <div class="time-item"><b>Q4 2026</b><p>Travel content system, merch drop, member kit, corporate/ERG packages, first annual OTT impact report.</p></div>
+      <div class="time-item"><b>2027</b><p>Blend expansion pilots, paid membership scale, multi-city sponsor packages, stronger video/YouTube layer.</p></div>
+    </div></div>
+    <div class="card"><h3>Priority Matrix</h3><div class="grid">
+      <div class="priority"><div class="p-badge">P1</div><div><h4>Launch owned audience system</h4><p>Email/newsletter, ticket buyer capture, source tracking, and post-event reporting.</p></div><div class="impact"><span class="high">High impact</span></div></div>
+      <div class="priority"><div class="p-badge">P1</div><div><h4>Productize membership</h4><p>Tiers, pricing, member lounge, benefits, and retention dashboards.</p></div><div class="impact"><span class="high">High impact</span></div></div>
+      <div class="priority"><div class="p-badge">P2</div><div><h4>Defend wellness frequency</h4><p>Monthly micro-events to support Fit Fest and compete with recurring communities.</p></div><div class="impact"><span class="med">Medium</span></div></div>
+      <div class="priority"><div class="p-badge">P2</div><div><h4>Turn travel into media</h4><p>Waitlists, mini-docs, guides, trip recaps, and sponsor-friendly storytelling.</p></div><div class="impact"><span class="med">Medium</span></div></div>
+    </div></div>
+  </div>
+</section>
+
+<section class="section" id="live">
+  <div class="section-head"><div class="kicker">Live Data Layer</div><div><h2>Build live data into the operating system.</h2><p class="lead">The dashboard should show freshness, connected sources, and which metrics are live versus manually updated. The infrastructure should be invisible; the output should be clear decisions.</p></div></div>
+  <div class="grid cards-3">
+    <div class="card gold"><h3>Data Status</h3><div class="feed"><div class="feed-item"><b>Ticketing</b><span>SweatPals/Gabe analytics</span><span class="tag green">Active</span></div><div class="feed-item"><b>Social</b><span>IG/TikTok metrics</span><span class="tag amber">Manual</span></div><div class="feed-item"><b>CRM</b><span>Email/member data</span><span class="tag red">Needed</span></div></div></div>
+    <div class="card"><h3>Weekly Executive Snapshot</h3><div class="list"><div>Follower growth and top content.</div><div>Ticket pace by event and category.</div><div>Revenue vs target.</div><div>Conversion issues and recommended actions.</div></div></div>
+    <div class="card"><h3>Automation Roadmap</h3><div class="list"><div>Phase 1: manual Google Sheet feeding dashboard metrics.</div><div>Phase 2: Airtable/Sheets fetch into cards and charts.</div><div>Phase 3: API integrations for social, ticketing, CRM, and sponsor reports.</div></div></div>
+  </div>
+</section>
+
+<footer class="footer">OTT HQ · Growth roadmap for brand, marketing, membership, sponsorship, and event performance.</footer>
+
+<script>
+const gold='#d6ac4b', gold2='#f4ddb0', green='#79d891', red='#ff746e', blue='#72cdfa', amber='#f5bf50', muted='rgba(247,243,232,.62)';
+Chart.defaults.color=muted; Chart.defaults.borderColor='rgba(247,243,232,.10)'; Chart.defaults.font.family='Inter, system-ui, sans-serif';
+new Chart(document.getElementById('contentMix'),{type:'doughnut',data:{labels:['Event hype','Community proof','Educational/Pro Dev','UGC/Creator','Experimental'],datasets:[{data:[35,25,20,15,5],backgroundColor:[gold,green,blue,amber,red],borderWidth:0}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{position:'bottom'}}}});
+new Chart(document.getElementById('revenueChart'),{type:'bar',data:{labels:['Tickets','Sponsors','Membership','Merch','Travel'],datasets:[{label:'Current/near-term opportunity',data:[218,150,90,45,120],backgroundColor:[gold,green,blue,amber,red],borderRadius:10}]},options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>'$'+v+'K'}}}}});
+new Chart(document.getElementById('portfolioChart'),{type:'radar',data:{labels:['Luxury Social','Wellness','Pro Dev','Travel','Membership','Owned Media'],datasets:[{label:'Current strength',data:[9,5,4,7,3,2],borderColor:gold,backgroundColor:'rgba(214,172,75,.18)',pointBackgroundColor:gold},{label:'12-month target',data:[10,8,7,9,8,8],borderColor:green,backgroundColor:'rgba(121,216,145,.10)',pointBackgroundColor:green}]},options:{responsive:true,maintainAspectRatio:false,scales:{r:{min:0,max:10,grid:{color:'rgba(247,243,232,.10)'},angleLines:{color:'rgba(247,243,232,.10)'}}}}});
+</script>
+</body>
+</html>
